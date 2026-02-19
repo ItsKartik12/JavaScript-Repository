@@ -28,3 +28,6 @@ console.log(myArray); // [1, 2, 3, 4, 5, 6, 7, 20]
 const mynarr1 = myArray.slice(1,3);
 console.log("A ",mynarr1);
 console.log("B",myArray);
+const mynarr2 = myArray.splice(1,3);
+console.log("C ",mynarr2);
+console.log("D ",myArray);
