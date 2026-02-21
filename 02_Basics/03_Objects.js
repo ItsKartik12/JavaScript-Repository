@@ -1,15 +1,28 @@
-//    singleton
-//   object literal
-const user = {
-    name : "Kartik",
-    "full name" : "Kartik Goyal",
-    age : 19,
-    location : "India",
-    isLoggedIn : true,
-    lastLoginDays : ["Monday", "Tuesday", "Wednesday"],
-    email: "kg0192421@gmail.com",
+const mySym = Symbol("key1");
 
+const user = {
+    name: "Kartik",
+    "full name": "Kartik Goyal",
+    age: 19,
+    [mySym]: "Mykey1",          // now works
+    location: "India",
+    isLoggedIn: true,
+    lastLoginDays: ["Monday", "Tuesday", "Wednesday"],
+    email: "kg0192421@gmail.com",
+};
+
+// console.log(user.email);                // kg0192421@gmail.com
+// console.log(user["email"]);             // kg0192421@gmail.com
+// console.log(user["full name"]);         // Kartik Goyal
+// console.log(user[mySym]);               // Mykey1
+// console.log(typeof user[mySym]);                   // object
+user.email = "ItsKartik@gmail.com";
+// console.log(user.email);
+Object.freeze(user);                   // freezes the object, can't change any value
+user.email = "AbbaJabbaDabba";
+// console.log(user.email);
+// console.log(user);
+user.greeting = function() {
+    console.log("Hello User");
 }
-console.log(user.email);
-console.log(user["email"]);
-console.log(user["full name"]);
+console.log(user.greeting);              // [Function: greeting]
