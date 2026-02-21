@@ -48,3 +48,10 @@ console.log(flatArray);
 // anyArray.flat(1)   → only one level     → [1,2,3,4,5,[7,8,9,[10,11]],6]
 // anyArray.flat(2)   → two levels         → [1,2,3,4,5,7,8,9,[10,11],6]
 // anyArray.flat(Infinity) → all levels (most useful)
+console.log(Array.isArray("Kartik"));
+console.log(Array.from("Kartik"));
+console.log(Array.from({name: "Kartik"}));
+let score1 = 100;
+let score2 = 200;
+let score3 = 300;
+console.llog(Array.of)
