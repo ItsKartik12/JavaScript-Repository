@@ -22,6 +22,15 @@ map1.set("d", 4);
 console.log(map1);
 
 for (const [key, value] of map1) {
-    console.log(key, ":-", value);
+    //console.log(key, ":-", value);
 
 }
+const myObject = {
+    "game1": 'NFS',
+    'game2': 'Spiderman'
+}
+
+// for (const [key, value] of myObject) {
+//     //console.log(key, ":-", value);
+
+// }
