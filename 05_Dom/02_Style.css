@@ -1,15 +1,24 @@
+body {
+  background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 .My_Heading {
-  color: red;
-  font-size: 50px;
-  background-color: black;
+  color: #00ffcc;
+  font-weight: 500;
+  font-size: 3em;
+  text-align: center;
+  text-decoration: bold;
+  margin-bottom: 20px;
 }
 .My_body {
-  color: green;
-  font-size: 20px;
-  background-color: yellow;
-  position: fixed;
-}
-.Extra {
-  height: 1000px;
-  width: 100%;
+  color: #b026ff;
+  font-size: medium;
+  line-height: 1.5;
+  line-break: 0.5em;
+  line-clamp: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 80%;
 }
