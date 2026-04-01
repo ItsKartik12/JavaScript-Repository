@@ -15,4 +15,3 @@ coding.forEach(printme);
 coding.forEach((item, index) => {
     console.log(index);
 })
-
