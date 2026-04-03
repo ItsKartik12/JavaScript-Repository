@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Element</title>
+</head>
+
+<body style="background-color: #212121; color: #dddddd"></body>
+
+<script>
+    // 1. Create the element
+    const div = document.createElement("div");
+
+    // 2. Add content and properties
+    div.textContent = "Hello, World!"; // Better practice than innerHTML for plain text
+    div.className = "main";
+
+    // Generate ID
+    const randomId = Math.round(Math.random() * 10 + 1);
+    div.id = randomId;
+
+    // 3. Apply logic-based styling
+    div.style.padding = "20px"; // Added for visibility
+    if (randomId > 5) {
+        div.style.backgroundColor = "green";
+        div.style.color = "white"; // Ensure text is visible on green background
+        div.style.color = "#f0f0ff";
+    } else {
+        div.style.backgroundColor = "red";
+    }
+
+    // 4. THE FIX: Attach it to the DOM
+    div.setAttribute("title", "This is a dynamically created div");
+    div.style.padding = "20px"; // Added for visibility
+    const addText = document.createTextNode(
+        " - This div was created using JavaScript.",
+    );
+    div.appendChild(addText);
+    console.log(addText);
+    console.log("Element created with ID:", div.id);
+    document.body.appendChild(div);
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit & Remove</title>
+  </head>
+
+  <body style="background-color: #313131; color: #eeeeee">
+    <ul class="language">
+      <li class="lang">JavaScript</li>
+      <li class="lang">c++</li>
+      <li class="lang">Python</li>
+      <li class="lang">Java</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(li);
+    }
+    addLanguage("Go");
+    addLanguage("Rust");
+    addLanguage("C#");
+    const li = document.querySelectorAll(".language");
+    li.forEach((item) => {
+      item.style.color = "#e9b52fdd";
+      item.style.fontSize = "3rem";
+    });
+
+    function addOptiLang(langName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(langName));
+      document.querySelector(".language").appendChild(li);
+    }
+    addOptiLang("swift");
+    const li2 = document.querySelector("li:nth-child(2)");
+    li2.innerHTML = "CSS";
+    const newli = document.createElement("li");
+    newli.innerHTML = "PHP";
+    li2.replaceWith(newli);
+    const lastli = document.querySelector("li:last-child");
+    lastli.remove();
+  </script>
+</html>
