@@ -1,0 +1,145 @@
+/* General Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar Refinement */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.navbar a.active {
+  background-color: #222;
+  color: #fff;
+}
+
+.navbar a:hover:not(.active) {
+  background-color: #eee;
+}
+
+/* Main Container - Centered and Card-like */
+main {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+header h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #222;
+}
+
+/* Button Refinement */
+#calculate {
+  cursor: pointer;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #222;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background 0.3s transform 0.1s;
+}
+
+#calculate:hover {
+  background-color: #444;
+}
+
+#calculate:active {
+  transform: scale(0.98);
+}
+
+/* Result Area */
+#result {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 10px;
+  min-height: 1.6rem;
+}
+
+/* Weight Guide Styling */
+#weight-guide {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+#weight-guide h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#weight-guide ul {
+  list-style: none;
+}
+
+#weight-guide li {
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #666;
+}

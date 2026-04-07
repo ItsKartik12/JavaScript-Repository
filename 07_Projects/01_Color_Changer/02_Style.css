@@ -1,7 +1,7 @@
 body {
   transition:
-    background-color 0.4s ease,
-    color 0.4s ease; /* Smooth transition */
+    background-color 1s ease,
+    color 1s ease; /* Smooth transition */
   margin: 0;
   font-family: sans-serif;
 }
@@ -9,7 +9,7 @@ body {
 nav {
   display: flex;
   gap: 12px;
-  background-color: #f0f0f0;
+  background-color: #b0b0b0;
   border-bottom: 1px solid #ccc;
   justify-content: center;
   padding: 12px 0;
@@ -22,7 +22,7 @@ nav a {
   border: 1px solid #333;
   border-radius: 6px;
   padding: 8px 16px;
-  background-color: #fff;
+  background-color: #ddd;
   transition: all 0.2s ease;
 }
 
