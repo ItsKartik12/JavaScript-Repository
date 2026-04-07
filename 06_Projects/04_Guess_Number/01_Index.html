@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="02_Style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/" target="_main" class="active">Home</a>
+      <a
+        href="https://leetcode.com/u/ItsKartik1234/"
+        target="_blank"
+        class="active"
+      >
+        My LeetCode Profile
+      </a>
+    </nav>
+    <h1>Number Guessing Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <p>You have 10 attempts! to guess the number.</p>
+
+    <form>
+      <label for="Guess" id="GuessLabel">Your Guess:</label>
+      <input
+        type="number"
+        min="1"
+        max="100"
+        class="guesses"
+        placeholder="Enter your guess"
+        step="1"
+        id="Guess"
+        required
+      />
+      <button type="submit" id="submit">Submit Guess</button>
+    </form>
+    <div class="resultParas">
+      <p>Previous Guess: <span id="PreviousGuess"></span></p>
+      <p>Guess Remaining: <span id="GuessRemaining">10</span></p>
+      <p class="lowOrHi"></p>
+    </div>
+  </body>
+  <script src="03_Script.js"></script>
+</html>
