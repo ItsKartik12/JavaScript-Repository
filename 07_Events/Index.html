@@ -69,7 +69,7 @@
   <script>
     /*document.getElementById("rivers").onclick = function () {
       alert("You clicked on the river image!");
-    };*/
+    };
     document.getElementById("rivers").addEventListener("click", function () {
       alert("You clicked on the river image!");
     });
@@ -101,5 +101,17 @@
       false,
     );
     // true for capturing phase, false for bubbling phase
+    document.getElementById("GOOGLE").addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log("Clicked on Google link");
+    });
+*/
+    document.querySelector("#Images").addEventListener("click", function (e) {
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        let removeit = e.target.parentNode;
+        removeit.remove();
+      }
+    });
   </script>
 </html>
