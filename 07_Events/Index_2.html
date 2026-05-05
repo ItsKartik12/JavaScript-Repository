@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartik's Page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background-color 0.5s,
+          color 0.5s; /* Smooth transition! */
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+        flex-direction: column;
+      }
+
+      /* State 1 */
+      .theme-red {
+        background-color: red;
+        color: black;
+      }
+
+      /* State 2 */
+      .theme-blue {
+        background-color: blue;
+        color: white;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s;
+      }
+
+      button:hover {
+        transform: scale(1.05); /* Subtle "pop" effect */
+      }
+
+      #stop {
+        background-color: #3f4d4d;
+        color: white;
+      }
+      #start {
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Its Kartik Goyal</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+
+    <script>
+      const body = document.body;
+      const title = document.querySelector("h1");
+      const stopButton = document.getElementById("stop");
+      const startButton = document.getElementById("start");
+      /*setTimeout(function () {
+        console.log("Hello World");
+      }, 2000);
+      setInterval(function () {
+        console.log("Hello World");
+      }, 2000);*/
+      const toggleTheme = () => {
+        if (title.textContent === "Its Kartik Goyal") {
+          title.textContent = "Hello Kartik";
+          body.className = "theme-red";
+        } else {
+          title.textContent = "Its Kartik Goyal";
+          body.className = "theme-blue";
+        }
+      };
+      //clearInterval(changeColor); // To stop the interval after some time, you can use this function.
+      let changeColor = setInterval(toggleTheme, 2000); // Store the interval ID in a variable for later use.
+      stopButton.addEventListener("click", () => {
+        clearInterval(changeColor);
+        changeColor = null; // Optional: Clear the variable to indicate that the interval has been stopped.
+        console.log("Interval stopped");
+      });
+      startButton.addEventListener("click", () => {
+        if (!changeColor) {
+          // Check if the interval is not already running
+          changeColor = setInterval(toggleTheme, 2000);
+        }
+        console.log("Interval started");
+      });
+    </script>
+  </body>
+</html>

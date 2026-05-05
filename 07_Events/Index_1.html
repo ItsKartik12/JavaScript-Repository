@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Basics</title>
+  </head>
+  <body
+    style="background-color: #414141; color: aliceblue; font-family: sans-serif"
+  >
+    <h2>Amazing Images</h2>
+
+    <ul id="Images">
+      <li>
+        <img
+          width="200px"
+          src="https://images.pexels.com/photos/28236738/pexels-photo-28236738.jpeg"
+          alt="Milestone marker on a path"
+          id="milestone"
+          class="photo"
+        />
+      </li>
+      <li>
+        <img
+          width="200px"
+          src="https://images.pexels.com/photos/19364657/pexels-photo-19364657.jpeg"
+          alt="Handcrafted creative items"
+          id="creative-craft"
+          class="photo"
+        />
+      </li>
+      <li>
+        <img
+          width="200px"
+          src="https://images.pexels.com/photos/30680965/pexels-photo-30680965.jpeg"
+          alt="A scenic river view"
+          id="rivers"
+          class="photo"
+        />
+      </li>
+      <li>
+        <img
+          width="200px"
+          src="https://images.pexels.com/photos/33572895/pexels-photo-33572895.jpeg"
+          alt="Modern workspace setup"
+          id="workspace"
+          class="photo"
+        />
+      </li>
+      <li>
+        <img
+          width="200px"
+          src="https://images.pexels.com/photos/7517594/pexels-photo-7517594.jpeg"
+          alt="Unique wildcard imagery"
+          id="wildcard"
+          class="photo"
+        />
+      </li>
+      <li>
+        <a
+          style="color: aliceblue; text-decoration: none; font-weight: bold"
+          href="https://www.google.com/"
+          id="GOOGLE"
+          >Google</a
+        >
+      </li>
+    </ul>
+
+    <hr style="border-color: #666; margin: 18px 0" />
+
+    <section aria-label="Event Playground" style="max-width: 980px">
+      <h3 style="margin: 0 0 10px">Event Playground</h3>
+
+      <div style="display: flex; gap: 18px; flex-wrap: wrap; align-items: start">
+        <div style="min-width: 280px; flex: 1">
+          <label for="nameInput" style="display: block; font-weight: 700"
+            >Type here</label
+          >
+          <input
+            id="nameInput"
+            name="name"
+            placeholder="Try typing, copying, pasting, focusing…"
+            style="
+              width: 100%;
+              margin-top: 8px;
+              padding: 10px 12px;
+              border-radius: 10px;
+              border: 1px solid #666;
+              background: #2a2a2a;
+              color: aliceblue;
+              outline: none;
+            "
+          />
+
+          <form id="demoForm" style="margin-top: 12px; display: grid; gap: 10px">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <button id="primaryBtn" type="button">Button events</button>
+              <button id="submitBtn" type="submit">Submit form</button>
+              <button id="resetBtn" type="reset">Reset</button>
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 10px">
+              <input id="demoCheckbox" type="checkbox" />
+              Checkbox (change/input)
+            </label>
+
+            <label style="display: grid; gap: 6px">
+              <span>Pick a value (change)</span>
+              <select
+                id="demoSelect"
+                style="
+                  width: 100%;
+                  padding: 10px 12px;
+                  border-radius: 10px;
+                  border: 1px solid #666;
+                  background: #2a2a2a;
+                  color: aliceblue;
+                "
+              >
+                <option value="">-- select --</option>
+                <option value="alpha">alpha</option>
+                <option value="beta">beta</option>
+                <option value="gamma">gamma</option>
+              </select>
+            </label>
+          </form>
+        </div>
+
+        <div style="min-width: 280px; flex: 1">
+          <div
+            id="dragZone"
+            style="
+              border: 1px dashed #777;
+              border-radius: 12px;
+              padding: 12px;
+              background: #2a2a2a;
+            "
+          >
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <div
+                id="draggable"
+                draggable="true"
+                style="
+                  width: 130px;
+                  height: 46px;
+                  border-radius: 12px;
+                  background: #3a6ea5;
+                  display: grid;
+                  place-items: center;
+                  font-weight: 800;
+                  user-select: none;
+                "
+              >
+                Drag me
+              </div>
+
+              <div
+                id="dropTarget"
+                style="
+                  flex: 1;
+                  min-width: 140px;
+                  height: 46px;
+                  border-radius: 12px;
+                  background: #2f2f2f;
+                  border: 1px solid #555;
+                  display: grid;
+                  place-items: center;
+                "
+              >
+                Drop here
+              </div>
+            </div>
+
+            <div
+              id="scrollBox"
+              tabindex="0"
+              style="
+                margin-top: 12px;
+                height: 110px;
+                overflow: auto;
+                border-radius: 12px;
+                border: 1px solid #555;
+                padding: 10px;
+                background: #1f1f1f;
+              "
+              aria-label="Scrollable box"
+            >
+              Scroll inside this box (wheel/scroll). Also try focusing it and
+              pressing keys.
+              <div style="height: 260px"></div>
+            </div>
+          </div>
+
+          <details style="margin-top: 12px">
+            <summary style="cursor: pointer; font-weight: 700">
+              Logged events (latest on top)
+            </summary>
+            <pre
+              id="eventLog"
+              style="
+                white-space: pre-wrap;
+                background: #1f1f1f;
+                border: 1px solid #555;
+                border-radius: 12px;
+                padding: 10px;
+                max-height: 260px;
+                overflow: auto;
+              "
+            ></pre>
+          </details>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const $ = (sel) => document.querySelector(sel);
+    const eventLogEl = $("#eventLog");
+
+    const summarizeEvent = (e) => {
+      const target =
+        e.target && e.target.id
+          ? `#${e.target.id}`
+          : e.target && e.target.tagName
+            ? e.target.tagName
+            : "unknown";
+      const current =
+        e.currentTarget && e.currentTarget.id
+          ? `#${e.currentTarget.id}`
+          : e.currentTarget === window
+            ? "window"
+            : e.currentTarget === document
+              ? "document"
+              : e.currentTarget && e.currentTarget.tagName
+                ? e.currentTarget.tagName
+                : "unknown";
+
+      const bits = [
+        `type=${e.type}`,
+        `target=${target}`,
+        `current=${current}`,
+        `bubbles=${Boolean(e.bubbles)}`,
+        `cancelable=${Boolean(e.cancelable)}`,
+      ];
+
+      if ("key" in e) bits.push(`key=${String(e.key)}`);
+      if ("button" in e) bits.push(`button=${String(e.button)}`);
+      if ("clientX" in e && "clientY" in e)
+        bits.push(`xy=${e.clientX},${e.clientY}`);
+      if ("deltaY" in e) bits.push(`deltaY=${String(e.deltaY)}`);
+      if ("clipboardData" in e) bits.push("clipboard=yes");
+
+      return bits.join(" | ");
+    };
+
+    const logEvent = (e) => {
+      const line = summarizeEvent(e);
+      console.log(line);
+      if (eventLogEl) {
+        const current = eventLogEl.textContent || "";
+        eventLogEl.textContent = `${line}\n${current}`.slice(0, 6000);
+      }
+    };
+
+    // Event delegation: click any image to remove its <li>
+    $("#Images").addEventListener("click", function (e) {
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        const removeit = e.target.parentNode;
+        removeit.remove();
+      }
+    });
+
+    // Prevent navigation so you can see click events in the log
+    $("#GOOGLE").addEventListener("click", (e) => {
+      e.preventDefault();
+      logEvent(e);
+    });
+
+    // A broad set of common DOM event types (grouped)
+    const eventGroups = {
+      mouse: [
+        "click",
+        "dblclick",
+        "contextmenu",
+        "mousedown",
+        "mouseup",
+        "mousemove",
+        "mouseenter",
+        "mouseleave",
+        "mouseover",
+        "mouseout",
+        "wheel",
+      ],
+      keyboard: ["keydown", "keyup", "keypress"],
+      focus: ["focus", "blur", "focusin", "focusout"],
+      form: ["input", "change", "submit", "reset", "invalid"],
+      clipboard: ["copy", "cut", "paste"],
+      dragDrop: [
+        "dragstart",
+        "drag",
+        "dragend",
+        "dragenter",
+        "dragover",
+        "dragleave",
+        "drop",
+      ],
+      pointer: [
+        "pointerdown",
+        "pointerup",
+        "pointermove",
+        "pointerenter",
+        "pointerleave",
+        "pointerover",
+        "pointerout",
+        "pointercancel",
+      ],
+      touch: ["touchstart", "touchmove", "touchend", "touchcancel"],
+      windowDocument: [
+        "DOMContentLoaded",
+        "load",
+        "beforeunload",
+        "resize",
+        "scroll",
+        "visibilitychange",
+        "hashchange",
+        "popstate",
+      ],
+      media: ["play", "pause", "volumechange", "ended", "timeupdate"],
+      animationTransition: [
+        "animationstart",
+        "animationend",
+        "animationiteration",
+        "transitionstart",
+        "transitionend",
+        "transitionrun",
+        "transitioncancel",
+      ],
+    };
+
+    const targets = {
+      document,
+      window,
+      images: $("#Images"),
+      input: $("#nameInput"),
+      form: $("#demoForm"),
+      button: $("#primaryBtn"),
+      select: $("#demoSelect"),
+      checkbox: $("#demoCheckbox"),
+      scrollBox: $("#scrollBox"),
+      dragZone: $("#dragZone"),
+      draggable: $("#draggable"),
+      dropTarget: $("#dropTarget"),
+    };
+
+    // Attach listeners safely (some events don’t fire everywhere)
+    const safeOn = (node, type, handler, options) => {
+      if (!node || !node.addEventListener) return;
+      try {
+        node.addEventListener(type, handler, options);
+      } catch {
+        // ignore unsupported event types in older browsers
+      }
+    };
+
+    // Mouse / pointer on the image list and button
+    [...eventGroups.mouse, ...eventGroups.pointer].forEach((t) => {
+      safeOn(targets.images, t, logEvent);
+      safeOn(targets.button, t, logEvent);
+    });
+
+    // Keyboard + focus + clipboard on the input + scrollBox
+    [...eventGroups.keyboard, ...eventGroups.focus, ...eventGroups.clipboard].forEach(
+      (t) => {
+        safeOn(targets.input, t, logEvent);
+        safeOn(targets.scrollBox, t, logEvent);
+      },
+    );
+
+    // Form events
+    eventGroups.form.forEach((t) => safeOn(targets.form, t, logEvent));
+    safeOn(targets.select, "change", logEvent);
+    safeOn(targets.checkbox, "change", logEvent);
+
+    // Drag & drop: allow drop by preventing default in dragover
+    eventGroups.dragDrop.forEach((t) => {
+      safeOn(targets.draggable, t, logEvent);
+      safeOn(targets.dropTarget, t, (e) => {
+        if (t === "dragover") e.preventDefault();
+        if (t === "drop") e.preventDefault();
+        logEvent(e);
+      });
+      safeOn(targets.dragZone, t, logEvent);
+    });
+
+    // Touch events (mostly mobile)
+    eventGroups.touch.forEach((t) => {
+      safeOn(targets.images, t, logEvent, { passive: true });
+      safeOn(targets.dragZone, t, logEvent, { passive: true });
+    });
+
+    // Window / document lifecycle + navigation
+    eventGroups.windowDocument.forEach((t) => {
+      const node = t === "visibilitychange" ? document : window;
+      safeOn(node, t, logEvent);
+    });
+
+    // Animation/transition events (will fire if you animate something)
+    eventGroups.animationTransition.forEach((t) => {
+      safeOn(targets.draggable, t, logEvent);
+      safeOn(targets.button, t, logEvent);
+    });
+
+    /*
+      SUMMARY:
+      - Shows event delegation on `#Images`: clicking an IMG removes its parent <li>.
+      - Demonstrates many DOM event types (mouse, keyboard, focus, form, clipboard, drag/drop,
+        pointer/touch, and window/document lifecycle) by attaching listeners to different elements.
+      - Logs each fired event to the console and to the "Logged events" panel, including useful
+        event fields like type, target/currentTarget, bubbles/cancelable, key, mouse position, etc.
+      - Prevents the Google link navigation so you can observe its click event.
+    */
+  </script>
+</html>
