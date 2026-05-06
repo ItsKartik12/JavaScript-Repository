@@ -1,0 +1,86 @@
+/* --- 1. Global Reset & Body --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a !important; /* Force background color */
+  color: #eeeeee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* --- 2. Navbar Fixes --- */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(40, 40, 40, 0.9); /* Darker background for visibility */
+  backdrop-filter: blur(15px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffffff !important; /* Overrides default blue link color */
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar a.active {
+  background: #fff;
+  color: #000 !important;
+}
+
+/* --- 3. Keyboard Table Logic (Guaranteed Borders) --- */
+#insert {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Target the table directly regardless of wrapper class */
+table {
+  border-collapse: collapse;
+  width: 500px;
+  background-color: #222;
+  border: 2px solid #ffffff; /* Bright white border to verify it works */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Force border visibility on all header and data cells */
+th,
+td {
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #ffffff !important; /* High contrast white border */
+}
+
+th {
+  background-color: #333;
+  color: #00d2ff;
+  text-transform: uppercase;
+}
+
+td {
+  background-color: #1e1e1e;
+  color: #2ecc71;
+  font-family: monospace;
+  font-size: 1.4rem;
+}

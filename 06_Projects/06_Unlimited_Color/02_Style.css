@@ -1,69 +1,106 @@
-/* General reset and layout */
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Stack buttons vertically or horizontally */
-  gap: 20px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-  /* Smoothly fades the background and text color over 0.5 seconds */
-  transition:
-    background-color 0.5s ease-in-out,
-    color 0.5s ease-in-out;
-
-  /* Default state */
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.5s ease;
   background-color: #212121;
-  color: white;
+  overflow: hidden;
 }
 
-/* Button styling */
-button {
-  padding: 12px 30px;
-  font-size: 1.1rem;
+/* Glassmorphism Navbar */
+.navbar {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 600;
-  border: 2px solid transparent;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a.active {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Button Layout */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
-/* Start Button specific style */
 #start {
-  background-color: #2ecc71;
-  color: white;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
 }
 
-#start:hover {
-  background-color: #27ae60;
-  transform: translateY(-2px);
-}
-
-#start:active {
-  transform: translateY(0);
-}
-
-/* Stop Button specific style */
 #stop {
-  background-color: #e74c3c;
-  color: white;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
 }
 
-#stop:hover {
-  background-color: #c0392b;
-  transform: translateY(-2px);
+button:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.1);
 }
 
-#stop:active {
+button:active {
   transform: translateY(0);
 }
 
-/* Optional: UI text helper */
-h1 {
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 10px;
+/* Mobile Friendly */
+@media (max-width: 500px) {
+  .navbar {
+    width: 90%;
+  }
+  .navbar a {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  .content-wrapper {
+    flex-direction: column;
+  }
 }
