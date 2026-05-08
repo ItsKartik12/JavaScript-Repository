@@ -47,3 +47,33 @@ promiseFour.then((user) => {
 }).finally(() => {
     console.log('Promise is either resolved or rejected');
 })
+const promiseFive = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        let error = false;
+        if (!error) {
+            resolve({ username: "JavaScript", password: "123" });
+        }
+        else {
+            reject('Error: JS went wrong');
+        }
+    }, 1000);
+});
+// wap in js to create a promise that excute error when two random number are chose A & B & if A is greater than B then resolve the promise otherwise reject the promise & make use of then, catch & finally to consume the promise.
+const promise1 = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        let A = Math.floor(Math.random() * 100);
+        let B = Math.floor(Math.random() * 100);
+        if (A > B) {
+            resolve({ A, B, message: "A is greater than B" });
+        } else {
+            reject({ A, B, message: "A is not greater than B" });
+        }
+    }, 1000);
+});
+promise1.then((data) => {
+    console.log(data);
+}).catch((error) => {
+    console.log(error);
+}).finally(() => {
+    console.log('Promise Six is either resolved or rejected');
+});
