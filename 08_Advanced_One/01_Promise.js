@@ -47,17 +47,6 @@ promiseFour.then((user) => {
 }).finally(() => {
     console.log('Promise is either resolved or rejected');
 })
-const promiseFive = new Promise(function (resolve, reject) {
-    setTimeout(() => {
-        let error = false;
-        if (!error) {
-            resolve({ username: "JavaScript", password: "123" });
-        }
-        else {
-            reject('Error: JS went wrong');
-        }
-    }, 1000);
-});
 // wap in js to create a promise that excute error when two random number are chose A & B & if A is greater than B then resolve the promise otherwise reject the promise & make use of then, catch & finally to consume the promise.
 const promise1 = new Promise(function (resolve, reject) {
     setTimeout(() => {
@@ -77,3 +66,34 @@ promise1.then((data) => {
 }).finally(() => {
     console.log('Promise Six is either resolved or rejected');
 });
+
+const promiseFive = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        let error = false;
+        if (!error) {
+            resolve({ username: "JavaScript", password: "123" });
+        }
+        else {
+            reject('Error: JS went wrong');
+        }
+    }, 1000);
+});
+// Ensure this function is actually called at the bottom of your file
+async function consumePromiseFive() {
+    try {
+        const response = await promiseFive;
+        console.log("FROM PROMISE FIVE:", response);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+consumePromiseFive();
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        
+
+    })
+    .catch(error => console.log(error));
